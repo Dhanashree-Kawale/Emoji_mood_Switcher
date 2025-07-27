@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Emoji mood Switcher</title>
     <style>
         *{
             margin: 0;
@@ -35,7 +35,7 @@
         h3{
             font-size: 32px;
         }
-        button{
+        .mood{
             padding: 10px 30px;
             font-size: 18px;
             font-weight: 500;
@@ -43,7 +43,7 @@
             border-color: azure;
             transition: all ease 0.5s;
             background-color: rgb(49, 175, 133);
-            
+            visibility: visible;
             
         }
         button:active{
@@ -57,8 +57,8 @@
         }
         
         .imgd{
-           display: grid;
-           place-items: center;
+            display: grid;
+            place-items: center;
             width: 300px;
             height: 300px;
             overflow: hidden;
@@ -68,7 +68,16 @@
             height: 300px;
             object-fit: cover;
         }
-        
+        .reset{
+             padding: 10px 30px;
+            font-size: 18px;
+            font-weight: 500;
+            border-radius: 6px ;
+            border-color: azure;
+            transition: all ease 0.5s;
+            background-color: rgb(41, 156, 127);
+            visibility: visible;
+        }
     </style>
 </head>
 <body>
@@ -77,13 +86,15 @@
         <div class="imgd">
              <img src="—Pngtree—3d rendering of a thinking_21052261.png" alt="angry" id="imgc"> 
         </div>
-        <div class="moodbutton">
+        <div class="moodButton">
             <ul>
-                <li><button class="angry">Angry </button></li>
-                <li>
-                <button class="happy">Happy</button></li>
-                <li>
-                <button class="sad">Sad</button>  </li>
+                <li><button class="angry mood">Angry </button></li>
+                <li><button class="happy mood">Happy</button></li>
+                <li><button class="sad mood">Sad</button>  </li>
+                <li><button class="scared mood">Scared</button></li>
+                <li><button class="tired mood">Tired</button></li>
+                <li><button class="exited mood">Exited</button></li>
+                <li><button class="bored mood">Bored</button></li>
             </ul>
             
         </div>
@@ -92,52 +103,121 @@
           <button class="reset">Reset</button>
           </div>
     </div>
-    <script >
+         <script >
+
         let main=document.querySelector(".main");
-let h3=document.querySelector("h3");
+        let h3=document.querySelector("h3");
+        let moodButton=document.querySelector(".moodButton")
 
-let img=document.querySelector(".imgd img")
+            let img=document.querySelector(".imgd img")
+            let happy=document.querySelector(".happy");
+            let angry=document.querySelector(".angry");
+            let sad=document.querySelector(".sad");
+            let scared=document.querySelector(".scared");
+            let exited=document.querySelector(".exited");
+            let bored=document.querySelector(".bored");
+            let tired=document.querySelector(".tired");
+            let reset=document.querySelector(".reset");
+            
 
-let happy=document.querySelector(".happy");
-let angry=document.querySelector(".angry");
-let sad=document.querySelector(".sad");
-let reset=document.querySelector(".reset");
+            
 
-let fhappy =()=>{
-    img.setAttribute("src","—Pngtree—3d emoji with a big_20273326.png");
-     main.style.backgroundColor="rgba(255,223,0)";
-     h3.style.color="black";
-     h3.innerText="Hey buddy! I am very happy today."
-}
+            
+            
+            let fscared =()=>{
+                console.dir("button clicked")
+                img.setAttribute("src","scared-removebg-preview.png");
+                main.style.backgroundColor="rgba(25, 25, 25, 0.994)";
+                h3.style.color="white";
+                h3.innerText="I am so scared!";
+                moodButton.style.display="none";
+                reset.style.scale="1.5";
+               
+            }
 
-happy.addEventListener("click",fhappy);
+            scared.addEventListener("click",fscared);
 
-let fangry =()=>{
-    img.setAttribute("src","angry-removebg-preview.png");
-     main.style.backgroundColor="rgb(255,69,0)";
-     h3.style.color="black";
-     h3.innerText="Don't talk to me!I am angry on you!"
-}
+            
+            let fexited =()=>{
+                img.setAttribute("src","excited-removebg-preview.png");
+                main.style.backgroundColor="rgba(255,105,180,1)";
+                h3.style.color="black";
+                h3.innerText="Very much excited for today!"
+                moodButton.style.display="none";
+                reset.style.scale="1.5";
+            }
 
-angry.addEventListener("click",fangry);
+            exited.addEventListener("click",fexited);
 
-let fsad =()=>{
-    img.setAttribute("src","sadpng-removebg-preview.png");
-     main.style.backgroundColor="rgba(72, 61, 139, 1)";
-     h3.style.color="white";
-     h3.innerText="Feeling sad today...";
-}
 
-sad.addEventListener("click",fsad);
+             let fbored =()=>{
+                img.setAttribute("src","bored-removebg-preview.png");
+                main.style.backgroundColor="rgba(128,128,128,1)";
+                h3.style.color="black";
+                h3.innerText="Bored with everything!"
+               moodButton.style.display="none"; 
+               reset.style.scale="1.5";
+            }
 
-let freset =()=>{
-    img.setAttribute("src","—Pngtree—3d rendering of a thinking_21052261.png");
-     main.style.backgroundColor="rgba(218, 241, 252, 0.994)";
-     h3.style.color="black";
-     h3.innerText="How are you feeling today?";
-}
+            bored.addEventListener("click",fbored);
 
-reset.addEventListener("click",freset);
-    </script>
+
+             let ftired =()=>{
+                img.setAttribute("src","tired-removebg-preview.png");
+                main.style.backgroundColor="rgba(200,191,231,1)";
+                h3.style.color="black";
+                h3.innerText="Exhausted due to work!"
+                moodButton.style.display="none";
+                reset.style.scale="1.5";
+            }
+
+            tired.addEventListener("click",ftired);
+
+
+            let fhappy =()=>{
+                img.setAttribute("src","—Pngtree—3d emoji with a big_20273326.png");
+                main.style.backgroundColor="rgba(255,223,0)";
+                h3.style.color="black";
+                h3.innerText="Hey buddy! I am very happy today."
+                moodButton.style.display="none";
+                reset.style.scale="1.5";
+            }
+
+            happy.addEventListener("click",fhappy);
+
+            let fangry =()=>{
+                img.setAttribute("src","angry-removebg-preview.png");
+                main.style.backgroundColor="rgb(255,69,0)";
+                h3.style.color="black";
+                h3.innerText="A bit frustated with problems!"
+                moodButton.style.display="none";
+                reset.style.scale="1.5";
+            }
+
+            angry.addEventListener("click",fangry);
+
+            let fsad =()=>{
+                img.setAttribute("src","sadpng-removebg-preview.png");
+                main.style.backgroundColor="rgba(72, 61, 139, 1)";
+                h3.style.color="white";
+                h3.innerText="Feeling sad today...";
+               moodButton.style.display="none";
+               reset.style.scale="1.5";
+            }
+
+            sad.addEventListener("click",fsad);
+
+
+            let freset =()=>{
+                img.setAttribute("src","—Pngtree—3d rendering of a thinking_21052261.png");
+                main.style.backgroundColor="rgba(218, 241, 252, 0.994)";
+                h3.style.color="black";
+                h3.innerText="How are you feeling today?";
+                moodButton.style.display="initial";
+                reset.style.scale="1";
+            }
+ 
+            reset.addEventListener("click",freset);
+                </script>
 </body>
 </html>
